@@ -2,12 +2,13 @@
  * Author   : Stephen Murchison
  * Email    : smurchison1@cnm.edu
  */
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Creates a scene managment script to advance or change game scenes.
 /// </summary>
-public static class SceneController
+public class SceneController : MonoBehaviour
 {
     /// <summary>
     /// Advances the scene by one, using the build index number. If index goes beyond
@@ -42,4 +43,10 @@ public static class SceneController
     /// <param name="SceneIndex">The scene build index number to go to</param>
     public static void GetSceneByIndex(int SceneIndex)
         => SceneManager.GetSceneAt(SceneIndex);
+
+    /// <summary>
+    /// Quits the unity game
+    /// </summary>
+    public static void QuitGame()
+        => Application.Quit();
 }
