@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 707397972d33fe449bb7118affe541cb
+  - enabled: 1
+    path: Assets/Scenes/Staging/PauseScreen.unity
+    guid: 18e8a71e01ff5714aa6949fd2281a60b
   m_configObjects: {}
