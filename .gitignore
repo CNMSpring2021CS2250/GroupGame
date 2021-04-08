@@ -58,3 +58,6 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Ignore MacOS .DS_Store Files -- TN 2021-04-08
+*.DS_Store
+.DS_Store
