@@ -153,9 +153,9 @@ RectTransform:
   m_Father: {fileID: 405294666}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -419.61, y: 113.58}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 74.390015, y: -194.42}
   m_SizeDelta: {x: 257.8634, y: 389.8427}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &187669757
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 723246470}
   - component: {fileID: 723246469}
   m_Layer: 5
-  m_Name: Flamingo (1)
+  m_Name: Penguin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -521,9 +521,9 @@ RectTransform:
   m_Father: {fileID: 405294666}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 366, y: 131.88}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -128, y: -176.12}
   m_SizeDelta: {x: 282.5291, y: 353.2475}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &723246469
@@ -973,9 +973,9 @@ RectTransform:
   m_Father: {fileID: 405294666}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341, y: -194.69998}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -153, y: 113.30002}
   m_SizeDelta: {x: 317.42023, y: 317.42023}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019997582
@@ -1604,9 +1604,9 @@ RectTransform:
   m_Father: {fileID: 405294666}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -346.1, y: -194.7}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 147.9, y: 113.3}
   m_SizeDelta: {x: 404.8756, y: 227.63141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081772700
