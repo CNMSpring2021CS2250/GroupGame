@@ -12,14 +12,36 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     /// <summary>
+    /// Whether the game is currently paused
+    /// </summary>
+    public bool IsPaused { get; private set; } = false;
+
+    /// <summary>
     /// Causes the pause menu to be visible
     /// </summary>
     public void Pause()
-        => gameObject.SetActive(true);
+    {
+        gameObject.SetActive(true);
+        IsPaused = true;
+    }
 
     /// <summary>
     /// Deactivates the pause menu
     /// </summary>
     public void Play()
-        => gameObject.SetActive(false);
+    {
+        gameObject.SetActive(false);
+        IsPaused = false;
+    }
+
+    /// <summary>
+    /// Toggles the pause state between true and false
+    /// </summary>
+    public void TogglePause()
+    {
+        if (this.IsPaused)
+            Play();
+        else
+            Pause();
+    }
 }

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private PauseMenu pauseMenu;
 
-    // Update is called once per frame
+    private void Start()
+        => pauseMenu = GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<PauseMenu>();
+
     void Update()
     {
-        
+        // Toggle game pauses with escape
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (pauseMenu != null)
+            {
+                pauseMenu.TogglePause();
+            }
+        }
     }
 }
