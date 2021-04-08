@@ -11,22 +11,20 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     /// <summary>
-    /// Advances the scene by one, using the build index number. If index goes beyond
-    /// the last index, wrap back around to the first scene.
+    /// Advances the scene by one, using the build index number.
     /// </summary>
     public void AdvanceScene()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1 % SceneManager.sceneCount;
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         SceneManager.LoadScene(nextSceneIndex);
     }
 
     /// <summary>
-    /// Goes back a scene, using the build index number. If index goes before
-    /// the first index, wrap back around to the last scene.
+    /// Goes back a scene, using the build index number.
     /// </summary>
     public void GoBackScene()
     {
-        int BackSceneIndex = SceneManager.GetActiveScene().buildIndex -1 % SceneManager.sceneCount;
+        int BackSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
         SceneManager.LoadScene(BackSceneIndex);
     }
 

@@ -1,7 +1,14 @@
-﻿using System.Collections;
+﻿/**
+ * Author  : Stephen Murchison
+ * Email   : smurchison1@cnm.edu
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls in-game UI elements, such as starting and stopping aspects of the UI.
+/// </summary>
 public class UIController : MonoBehaviour
 {
     private PauseMenu pauseMenu;
