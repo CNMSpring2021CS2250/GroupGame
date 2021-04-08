@@ -7,7 +7,11 @@ public class UIController : MonoBehaviour
     private PauseMenu pauseMenu;
 
     private void Start()
-        => pauseMenu = GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<PauseMenu>();
+    {
+        pauseMenu = GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<PauseMenu>();
+
+        SetupMenuStates();
+    }
 
     void Update()
     {
@@ -15,9 +19,16 @@ public class UIController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (pauseMenu != null)
-            {
                 pauseMenu.TogglePause();
-            }
         }
+    }
+
+    /// <summary>
+    /// Make sure all the menus are in correct states when the user hits play.
+    /// </summary>
+    private void SetupMenuStates()
+    {
+        if (pauseMenu != null)
+            pauseMenu.Play();
     }
 }
