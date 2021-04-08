@@ -11,23 +11,21 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     /// <summary>
-    /// Advances the scene by one, using the build index number. If index goes beyond
-    /// the last index, wrap back around to the first scene.
+    /// Advances the scene by one, using the build index number.
     /// </summary>
     public void AdvanceScene()
     {
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1 % SceneManager.sceneCount;
-        SceneManager.GetSceneAt(nextSceneIndex);
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     /// <summary>
-    /// Goes back a scene, using the build index number. If index goes before
-    /// the first index, wrap back around to the last scene.
+    /// Goes back a scene, using the build index number.
     /// </summary>
     public void GoBackScene()
     {
-        int BackSceneIndex = SceneManager.GetActiveScene().buildIndex -1 % SceneManager.sceneCount;
-        SceneManager.GetSceneAt(BackSceneIndex);
+        int BackSceneIndex = SceneManager.GetActiveScene().buildIndex - 1;
+        SceneManager.LoadScene(BackSceneIndex);
     }
 
     /// <summary>
@@ -35,14 +33,14 @@ public class SceneController : MonoBehaviour
     /// </summary>
     /// <param name="name">The name of the scene to go to</param>
     public void GetSceneByName(string name)
-        => SceneManager.GetSceneByName(name);
+        => SceneManager.LoadScene(name);
 
     /// <summary>
     /// Gets a specific scene by the build index number
     /// </summary>
     /// <param name="SceneIndex">The scene build index number to go to</param>
     public void GetSceneByIndex(int SceneIndex)
-        => SceneManager.GetSceneAt(SceneIndex);
+        => SceneManager.LoadScene(SceneIndex);
 
     /// <summary>
     /// Quits the unity game
