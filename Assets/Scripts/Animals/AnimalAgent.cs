@@ -353,7 +353,7 @@ public class AnimalAgent : Agent
     /// <param name="collider">The trigger collider</param>
     private void TriggerEnterOrStay(Collider collider)
     {
-        if (collider.CompareTag("nectar"))
+        if (collider.CompareTag("berry"))
         {
             Vector3 closestPointToBeakTip = collider.ClosestPoint(mouthPos.position);
 
