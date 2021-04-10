@@ -4,7 +4,7 @@ using Unity.MLAgents;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
-public class HummingbirdAgent : Agent
+public class AnimalAgent : Agent
 {
     [Tooltip("Force to apply when moving")]
     public float moveForce = 2f;
@@ -15,11 +15,8 @@ public class HummingbirdAgent : Agent
     [Tooltip("Speed to roate around the up axis")]
     public float yawSpeed = 100f;
 
-    [Tooltip("Transform beak tip")]
-    public Transform beakTip;
-
-    [Tooltip("The agent's camera")]
-    public Camera agentCamera;
+    [Tooltip("Transform of the mouth")]
+    public Transform mouthPos;
 
     [Tooltip("Whether this is training mode or gameplay mode")]
     public bool trainingMode;
@@ -31,7 +28,7 @@ public class HummingbirdAgent : Agent
     private FlowerArea flowerArea;
 
     // The nearest flower to the agent
-    private Flower nearestFlower;
+    private Berry nearestFlower;
 
     // Allows for smoother pitch changes
     private float smoothPitchChange = 0f;
@@ -59,7 +56,7 @@ public class HummingbirdAgent : Agent
     public override void Initialize()
     {
         rigidbody = GetComponent<Rigidbody>();
-        flowerArea = GetComponentInParent<FlowerArea>();
+        flowerArea = GameObject.Find("Food").GetComponent<FlowerArea>();
 
         // If not training mode, no max step, play forever
         if (!trainingMode) MaxStep = 0;
@@ -119,7 +116,7 @@ public class HummingbirdAgent : Agent
             if (inFrontOfFlower)
             {
                 // Pick a random flower
-                Flower randomFlower = flowerArea.Flowers[Random.Range(0, flowerArea.Flowers.Count)];
+                Berry randomFlower = flowerArea.Flowers[Random.Range(0, flowerArea.Flowers.Count)];
 
                 // Position 10 to 20 cm in front of the flower
                 float distanceFromFlower = Random.Range(.1f, .2f);
@@ -161,7 +158,7 @@ public class HummingbirdAgent : Agent
     /// </summary>
     private void UpdateNearestFlower()
     {
-        foreach (Flower flower in flowerArea.Flowers)
+        foreach (Berry flower in flowerArea.Flowers)
         {
             if (nearestFlower == null && flower.HasNectar)
             {
@@ -171,8 +168,8 @@ public class HummingbirdAgent : Agent
             else if (flower.HasNectar)
             {
                 // Calculate distances
-                float distanceToFlower = Vector3.Distance(flower.transform.position, beakTip.position);
-                float distanceToCurrentNearestFlower = Vector3.Distance(nearestFlower.transform.position, beakTip.position);
+                float distanceToFlower = Vector3.Distance(flower.transform.position, mouthPos.position);
+                float distanceToCurrentNearestFlower = Vector3.Distance(nearestFlower.transform.position, mouthPos.position);
 
                 // IF current is closer set nearest to current
                 if (!nearestFlower.HasNectar || distanceToFlower < distanceToCurrentNearestFlower)
@@ -293,7 +290,7 @@ public class HummingbirdAgent : Agent
         sensor.AddObservation(transform.localRotation.normalized);
 
         // Get a vector from the beak tip to the nearest flower
-        Vector3 toFlower = nearestFlower.FlowerCenterPosition - beakTip.position;
+        Vector3 toFlower = nearestFlower.FlowerCenterPosition - mouthPos.position;
 
         // Observe a normalized vecotr pointing to the nearest flower (3 Observations)
         sensor.AddObservation(toFlower.normalized);
@@ -304,7 +301,7 @@ public class HummingbirdAgent : Agent
 
         // Observe a dot product that indicates whether the beak is pointing towards the flower  (1 Observations)
         // +1 = beak is pointing directly at the flower, -1 directly away
-        sensor.AddObservation(Vector3.Dot(beakTip.forward.normalized, -nearestFlower.FlowerUpVector.normalized));
+        sensor.AddObservation(Vector3.Dot(mouthPos.forward.normalized, -nearestFlower.FlowerUpVector.normalized));
 
         // Observe the relative distance from the beak tip to the flower (1 Observations)
         sensor.AddObservation(toFlower.magnitude / FlowerArea.AreaDiameter);
@@ -358,14 +355,14 @@ public class HummingbirdAgent : Agent
     {
         if (collider.CompareTag("nectar"))
         {
-            Vector3 closestPointToBeakTip = collider.ClosestPoint(beakTip.position);
+            Vector3 closestPointToBeakTip = collider.ClosestPoint(mouthPos.position);
 
             // Check if the closest collision point is close to the beak tip.
             // Note: a collision with anything but the beaktip should not count.
-            if (Vector3.Distance(beakTip.position, closestPointToBeakTip) < BeakTipRadius) 
+            if (Vector3.Distance(mouthPos.position, closestPointToBeakTip) < BeakTipRadius) 
             {
                 // Get the flower for this nectar collider
-                Flower flower = flowerArea.GetFlowerFromNectar(collider);
+                Berry flower = flowerArea.GetFlowerFromNectar(collider);
 
                 // Attempt to take .01 nectar
                 // Note: this is per fixed timestep, meaning it happens every .02 seconds
@@ -390,18 +387,18 @@ public class HummingbirdAgent : Agent
         }
     }
 
-    /// <summary>
-    /// Called when the agent collides with something solid
-    /// </summary>
-    /// <param name="collision">The collision info</param>
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (trainingMode && collision.collider.CompareTag("boundary"))
-        {
-            // Collision with area boundary give negative reward
-            AddReward(-.5f);
-        }
-    }
+    ///// <summary>
+    ///// Called when the agent collides with something solid
+    ///// </summary>
+    ///// <param name="collision">The collision info</param>
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (trainingMode && collision.collider.CompareTag("boundary"))
+    //    {
+    //        // Collision with area boundary give negative reward
+    //        AddReward(-.5f);
+    //    }
+    //}
 
     /// <summary>
     /// Called every frame
@@ -411,7 +408,7 @@ public class HummingbirdAgent : Agent
         // Draw a line from the beak tip to the nearest flower
         if (nearestFlower != null)
         {
-            Debug.DrawLine(beakTip.position, nearestFlower.FlowerCenterPosition, Color.green);
+            Debug.DrawLine(mouthPos.position, nearestFlower.FlowerCenterPosition, Color.green);
         }
     }
 

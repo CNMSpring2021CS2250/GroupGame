@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Flower : MonoBehaviour
+public class Berry : MonoBehaviour
 {
 
     [Tooltip("The color when the flower is full")]
@@ -15,9 +15,6 @@ public class Flower : MonoBehaviour
     /// </summary>
     [HideInInspector]
     public Collider nectarCollider;
-
-    // The solid collider representing the flower petals
-    private Collider flowerCollider;
 
     // The flower's material
     private Material flowerMaterial;
@@ -70,7 +67,6 @@ public class Flower : MonoBehaviour
             NectarAmount = 0;
 
             // Disable the flower and nectar colliders
-            flowerCollider.gameObject.SetActive(false);
             nectarCollider.gameObject.SetActive(false);
 
             // Change the flower color to indicate that it is empty
@@ -90,7 +86,6 @@ public class Flower : MonoBehaviour
         NectarAmount = 1f;
 
         // Enable the flower and nectar colliders
-        flowerCollider.gameObject.SetActive(true);
         nectarCollider.gameObject.SetActive(true);
 
         // Change the flower clor to indicate that it is full
@@ -104,7 +99,6 @@ public class Flower : MonoBehaviour
         flowerMaterial = meshRenderer.material;
 
         // Find flower and nectar colliders
-        flowerCollider = transform.Find("FlowerCollider").GetComponent<Collider>();
-        nectarCollider = transform.Find("FlowerNectarCollider").GetComponent<Collider>();
+        nectarCollider = GetComponent<Collider>();
     }
 }

@@ -12,12 +12,12 @@ public class FlowerArea : MonoBehaviour
     private List<GameObject> flowerPlants;
 
     // A lookup dictionary for looking up a flower from a nectar collider
-    private Dictionary<Collider, Flower> nectarFlowerDictionary;
+    private Dictionary<Collider, Berry> nectarFlowerDictionary;
 
     /// <summary>
     /// The list of all flowers in the flower area
     /// </summary>
-    public List<Flower> Flowers { get; private set; }
+    public List<Berry> Flowers { get; private set; }
 
     /// <summary>
     /// Reset the flowers and flower plants
@@ -34,18 +34,18 @@ public class FlowerArea : MonoBehaviour
         }
 
         // Rest each flower
-        foreach (Flower flower in Flowers)
+        foreach (Berry flower in Flowers)
         {
             flower.ResetFlower();
         }
     }
 
     /// <summary>
-    /// Gets the <see cref="Flower"/> that a nectar collider belongs to
+    /// Gets the <see cref="Berry"/> that a nectar collider belongs to
     /// </summary>
     /// <param name="collider">The nectar collider</param>
     /// <returns>The matching flower</returns>
-    public Flower GetFlowerFromNectar(Collider collider)
+    public Berry GetFlowerFromNectar(Collider collider)
         => nectarFlowerDictionary[collider];
 
     /// <summary>
@@ -55,8 +55,8 @@ public class FlowerArea : MonoBehaviour
     {
         // Initialize variables
         flowerPlants = new List<GameObject>();
-        nectarFlowerDictionary = new Dictionary<Collider, Flower>();
-        Flowers = new List<Flower>();
+        nectarFlowerDictionary = new Dictionary<Collider, Berry>();
+        Flowers = new List<Berry>();
     }
 
     /// <summary>
@@ -78,7 +78,7 @@ public class FlowerArea : MonoBehaviour
         {
             Transform child = parent.GetChild(i);
 
-            if (child.CompareTag("flower_plant"))
+            if (child.CompareTag("berry_plant"))
             {
                 // Found a flower plant, add it to the flower plants list
                 flowerPlants.Add(child.gameObject);
@@ -89,10 +89,10 @@ public class FlowerArea : MonoBehaviour
             else
             {
                 // Not a flower plant, look for a flower component
-                Flower flower = child.GetComponent<Flower>();
+                Berry flower = child.GetComponent<Berry>();
                 if (flower != null)
                 {
-                    // Found a flwoer! Add it to the flowers list
+                    // Found a Flower! Add it to the flowers list
                     Flowers.Add(flower);
 
                     // Add the nectar collider to the lookup dictionary
