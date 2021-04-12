@@ -104,53 +104,53 @@ public class AnimalAgent : Agent
     /// <param name="inFrontOfFlower">Whether to choose a spot in front of a flower</param>
     private void MoveToSafeRandomPosition(bool inFrontOfFlower)
     {
-        bool safePositionFound = false;
-        int attemptsRemaining = 100; // PRevent infinit loop
-        Vector3 potentialPosition = Vector3.zero;
-        Quaternion potentialRotation = new Quaternion();
+        //bool safePositionFound = false;
+        //int attemptsRemaining = 100; // PRevent infinit loop
+        //Vector3 potentialPosition = Vector3.zero;
+        //Quaternion potentialRotation = new Quaternion();
 
-        // Loop until a safe position is found or run out of attempts
-        while (!safePositionFound && attemptsRemaining > 0)
-        {
-            attemptsRemaining--;
-            if (inFrontOfFlower)
-            {
-                // Pick a random flower
-                Berry randomFlower = flowerArea.Flowers[Random.Range(0, flowerArea.Flowers.Count)];
+        //// Loop until a safe position is found or run out of attempts
+        //while (!safePositionFound && attemptsRemaining > 0)
+        //{
+        //    attemptsRemaining--;
+        //    if (inFrontOfFlower)
+        //    {
+        //        // Pick a random flower
+        //        Berry randomFlower = flowerArea.Flowers[Random.Range(0, flowerArea.Flowers.Count)];
 
-                // Position 10 to 20 cm in front of the flower
-                float distanceFromFlower = Random.Range(.1f, .2f);
-                potentialPosition = randomFlower.transform.position + randomFlower.FlowerUpVector * distanceFromFlower;
+        //        // Position 10 to 20 cm in front of the flower
+        //        float distanceFromFlower = Random.Range(.5f, 1f);
+        //        potentialPosition = randomFlower.transform.position + randomFlower.FlowerUpVector * distanceFromFlower;
 
-                // Point beak at the flower
-                Vector3 toFlower = randomFlower.FlowerCenterPosition - potentialPosition;
-                potentialRotation = Quaternion.LookRotation(toFlower, Vector3.up);
-            }
-            else
-            {
-                // Pick a random height from the ground
-                float height = Random.Range(1.2f, 2.5f);
-                // Pick a random radius from the center of the flower area
-                float radius = Random.Range(2f, 7f);
-                // Pick a random direction rotated around the y axis
-                Quaternion direction = Quaternion.Euler(0f, Random.Range(-180, 180f), 0f);
-                // Combine height, radius and direction to pick position
-                potentialPosition = flowerArea.transform.position = Vector3.up * height + direction * Vector3.forward * radius;
+        //        // Point beak at the flower
+        //        Vector3 toFlower = randomFlower.FlowerCenterPosition - potentialPosition;
+        //        potentialRotation = Quaternion.LookRotation(toFlower, Vector3.up);
+        //    }
+        //    else
+        //    {
+        //        // Pick a random height from the ground
+        //        //float height = Random.Range(1.2f, 2.5f);
+        //        // Pick a random radius from the center of the flower area
+        //        float radius = Random.Range(2f, 7f);
+        //        // Pick a random direction rotated around the y axis
+        //        Quaternion direction = Quaternion.Euler(0f, Random.Range(-180, 180f), 0f);
+        //        // Combine height, radius and direction to pick position
+        //        potentialPosition = flowerArea.transform.position = Vector3.up + direction * Vector3.forward * radius;
 
-                // Choose and set random starting pitch and yaw
-                float pitch = Random.Range(-60f, 60f);
-                float yaw = Random.Range(-180f, 180f);
-                potentialRotation = Quaternion.Euler(pitch, yaw, 0f);
-            }
+        //        // Choose and set random starting pitch and yaw
+        //        float pitch = Random.Range(-60f, 60f);
+        //        float yaw = Random.Range(-180f, 180f);
+        //        potentialRotation = Quaternion.Euler(pitch, yaw, 0f);
+        //    }
 
-            // Check to see if the angent will collide with anything
-            Collider[] colliders = Physics.OverlapSphere(potentialPosition, 0.05f);
+        //    // Check to see if the angent will collide with anything
+        //    Collider[] colliders = Physics.OverlapSphere(potentialPosition, 0.05f);
 
-            // Safe position has been found if no colliders are overlapped
-            safePositionFound = colliders.Length == 0;
-        }
+        //    // Safe position has been found if no colliders are overlapped
+        //    safePositionFound = colliders.Length == 0;
+        //}
 
-        Debug.Assert(safePositionFound, "Could not find a safe position to spawn");
+        //Debug.Assert(safePositionFound, "Could not find a safe position to spawn");
     }
 
     /// <summary>
