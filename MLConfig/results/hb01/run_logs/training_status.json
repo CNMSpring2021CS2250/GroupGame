@@ -1,0 +1,29 @@
+{
+    "Lion": {
+        "checkpoints": [
+            {
+                "steps": 6512,
+                "file_path": "results\\hb01\\Lion\\Lion-6512.onnx",
+                "reward": 0.2590598265329997,
+                "creation_time": 1618244632.514532
+            },
+            {
+                "steps": 51584,
+                "file_path": "results\\hb01\\Lion\\Lion-51584.onnx",
+                "reward": null,
+                "creation_time": 1618244815.8969922
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 51584,
+            "file_path": "results\\hb01\\Lion.onnx",
+            "reward": null,
+            "creation_time": 1618244815.8969922
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.8.1+cpu"
+    }
+}
