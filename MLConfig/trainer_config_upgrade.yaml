@@ -1,5 +1,5 @@
 behaviors:
-  Lion:
+  Animal:
     trainer_type: ppo
     hyperparameters:
       batch_size: 2048
