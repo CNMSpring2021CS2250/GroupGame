@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: Lion
+  m_BehaviorName: Animal
   TeamId: 0
   m_UseChildSensors: 1
 --- !u!114 &2994810319338292582
