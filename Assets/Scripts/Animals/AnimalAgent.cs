@@ -6,6 +6,12 @@ using UnityEngine;
 
 public class AnimalAgent : Agent
 {
+    [Tooltip("Maximum height berry to go after")]
+    public float maxHeightBerry = 2.2f;
+
+    [Tooltip("Minimum height berry to go after")]
+    public float minHeightBerry = 1.7f;
+
     [Tooltip("Force to apply when moving")]
     public float moveForce = 2f;
 
@@ -154,27 +160,43 @@ public class AnimalAgent : Agent
     }
 
     /// <summary>
+    /// Returns true if the value is between the lower and upper limits
+    /// </summary>
+    /// <param name="num">The number to check against</param>
+    /// <param name="lower">The lower bound</param>
+    /// <param name="upper"><The upper bound/param>
+    /// <param name="inclusive">Whether num can match the lower or upper bound, true to match</param>
+    /// <returns>True if num is between the values, false otherwise.</returns>
+    public bool Between(float num, float lower, float upper, bool inclusive = false)
+        => inclusive
+            ? lower <= num && num <= upper
+            : lower < num && num < upper;
+
+    /// <summary>
     /// Update the nearest flower to the agent
     /// </summary>
     private void UpdateNearestFlower()
     {
         foreach (Berry flower in flowerArea.Flowers)
         {
-            if (nearestFlower == null && flower.HasNectar)
+            if (Between(flower.transform.position.y, minHeightBerry, maxHeightBerry, true))
             {
-                // No current nearest flower and this flower has nectar, so set this flower
-                nearestFlower = flower;
-            }
-            else if (flower.HasNectar)
-            {
-                // Calculate distances
-                float distanceToFlower = Vector3.Distance(flower.transform.position, mouthPos.position);
-                float distanceToCurrentNearestFlower = Vector3.Distance(nearestFlower.transform.position, mouthPos.position);
-
-                // IF current is closer set nearest to current
-                if (!nearestFlower.HasNectar || distanceToFlower < distanceToCurrentNearestFlower)
+                if (nearestFlower == null && flower.HasNectar)
                 {
+                    // No current nearest flower and this flower has nectar, so set this flower
                     nearestFlower = flower;
+                }
+                else if (flower.HasNectar)
+                {
+                    // Calculate distances
+                    float distanceToFlower = Vector3.Distance(flower.transform.position, mouthPos.position);
+                    float distanceToCurrentNearestFlower = Vector3.Distance(nearestFlower.transform.position, mouthPos.position);
+
+                    // IF current is closer set nearest to current
+                    if (!nearestFlower.HasNectar || distanceToFlower < distanceToCurrentNearestFlower)
+                    {
+                        nearestFlower = flower;
+                    }
                 }
             }
         }
