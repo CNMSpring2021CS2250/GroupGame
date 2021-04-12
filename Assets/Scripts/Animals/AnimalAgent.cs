@@ -197,7 +197,7 @@ public class AnimalAgent : Agent
         if (frozen) return;
 
         // Calculate movement vector
-        Vector3 move = new Vector3(vectorAction[0], vectorAction[1], vectorAction[2]);
+        Vector3 move = new Vector3(vectorAction[0], 0, vectorAction[2]);
 
         // Add force in the direction of the move vector
         rigidbody.AddForce(move * moveForce);
@@ -206,11 +206,11 @@ public class AnimalAgent : Agent
         Vector3 rotationVector = transform.rotation.eulerAngles;
 
         //Calculate pitch and yaw rotation
-        float pitchChange = vectorAction[3];
+        //float pitchChange = vectorAction[3];
         float yawChange = vectorAction[4];
 
         //Calculate smooth rotation changes
-        smoothPitchChange = Mathf.MoveTowards(smoothPitchChange, pitchChange, 2f * Time.fixedDeltaTime);
+        smoothPitchChange = Mathf.MoveTowards(smoothPitchChange, 0, 2f * Time.fixedDeltaTime);
         smoothYawChange = Mathf.MoveTowards(smoothYawChange, yawChange, 2f * Time.fixedDeltaTime);
 
         //Calculate new pitch and yaw based on smoothed values
