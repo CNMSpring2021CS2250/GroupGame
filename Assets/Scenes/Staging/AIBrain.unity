@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: LionBehavior
+  m_BehaviorName: Lion
   TeamId: 0
   m_UseChildSensors: 1
 --- !u!4 &180791763 stripped
