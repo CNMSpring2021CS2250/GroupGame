@@ -5,100 +5,100 @@ using UnityEngine;
 public class Berry : MonoBehaviour
 {
 
-    [Tooltip("The color when the flower is full")]
-    public Color fullFlowerColor = new Color(1f, 0f, .3f);
-    [Tooltip("The color when the flower is empty")]
-    public Color emptyFlowerColor = new Color(0.5f, 0f, 1f);
+    [Tooltip("The color when the berry is full")]
+    public Color fullBerryColor = new Color(1f, 0f, .3f);
+    [Tooltip("The color when the berry is empty")]
+    public Color emptyBerryColor = new Color(0.5f, 0f, 1f);
 
     /// <summary>
-    /// The trigger collider representing the nectar
+    /// The trigger collider representing the food
     /// </summary>
     [HideInInspector]
-    public Collider nectarCollider;
+    public Collider FoodCollider;
 
-    // The flower's material
-    private Material flowerMaterial;
+    // The berry's material
+    private Material BerryMaterial;
 
     /// <summary>
-    /// A vector pointing staight out of the flower
+    /// A vector pointing staight out of the berry
     /// </summary>
-    public Vector3 FlowerUpVector
+    public Vector3 BerryUpVector
     {
-        get => nectarCollider.transform.up;
+        get => FoodCollider.transform.up;
     }
 
     /// <summary>
-    /// The center position of the nectar collider
+    /// The center position of the food collider
     /// </summary>
-    public Vector3 FlowerCenterPosition
+    public Vector3 BerryCenterPosition
     {
-        get => nectarCollider.transform.position;
+        get => FoodCollider.transform.position;
     }
 
     /// <summary>
-    /// The amount of nectar remaining in the flower
+    /// The amount of food remaining in the berry
     /// </summary>
-    public float NectarAmount { get; private set; }
+    public float FoodAmount { get; private set; }
 
     /// <summary>
-    /// Whether the flower has any nectar remaining
+    /// Whether the berry has any food remaining
     /// </summary>
-    public bool HasNectar
+    public bool HasFood
     {
-        get => NectarAmount > 0f;
+        get => FoodAmount > 0f;
     }
 
     /// <summary>
-    /// Attempts to remove nectar from the flower
+    /// Attempts to remove food from the berry
     /// </summary>
-    /// <param name="amount">The amount of the nectar to try to remove</param>
+    /// <param name="amount">The amount of the food to try to remove</param>
     /// <returns>The actual amount removed</returns>
     public float Feed(float amount)
     {
-        // Track how much nectar was successfully taken (cannot take more than is available)
-        float nectarTaken = Mathf.Clamp(amount, 0f, NectarAmount);
+        // Track how much food was successfully taken (cannot take more than is available)
+        float FoodTaken = Mathf.Clamp(amount, 0f, FoodAmount);
 
-        // Subtract the nectar
-        NectarAmount -= amount;
+        // Subtract the food
+        FoodAmount -= amount;
 
-        if (NectarAmount <= 0)
+        if (FoodAmount <= 0)
         {
-            // No nectar remaining
-            NectarAmount = 0;
+            // No food remaining
+            FoodAmount = 0;
 
-            // Disable the flower and nectar colliders
-            nectarCollider.gameObject.SetActive(false);
+            // Disable the berry and food colliders
+            FoodCollider.gameObject.SetActive(false);
 
-            // Change the flower color to indicate that it is empty
-            flowerMaterial.SetColor("_BaseColor", emptyFlowerColor);
+            // Change the berry color to indicate that it is empty
+            BerryMaterial.SetColor("_BaseColor", emptyBerryColor);
         }
 
-        // Return the amount of nectar that was taken
-        return nectarTaken;
+        // Return the amount of food that was taken
+        return FoodTaken;
     }
 
     /// <summary>
-    /// Resets the flower
+    /// Resets the berry
     /// </summary>
-    public void ResetFlower()
+    public void ResetBerry()
     {
-        // Refil the nectar
-        NectarAmount = 1f;
+        // Refil the food
+        FoodAmount = 1f;
 
-        // Enable the flower and nectar colliders
-        nectarCollider.gameObject.SetActive(true);
+        // Enable the berry and food colliders
+        FoodCollider.gameObject.SetActive(true);
 
-        // Change the flower clor to indicate that it is full
-        flowerMaterial.SetColor("_BaseColor", fullFlowerColor);
+        // Change the berry clor to indicate that it is full
+        BerryMaterial.SetColor("_BaseColor", fullBerryColor);
     }
 
     private void Awake()
     {
-        // Find the flower's mesh renderer and get the main material
+        // Find the berry's mesh renderer and get the main material
         MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
-        flowerMaterial = meshRenderer.material;
+        BerryMaterial = meshRenderer.material;
 
-        // Find flower and nectar colliders
-        nectarCollider = GetComponent<Collider>();
+        // Find berry and food colliders
+        FoodCollider = GetComponent<Collider>();
     }
 }

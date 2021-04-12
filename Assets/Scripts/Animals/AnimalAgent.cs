@@ -30,11 +30,11 @@ public class AnimalAgent : Agent
     // The rigid body of the agent
     new private Rigidbody rigidbody;
 
-    // The flower area the agent is in
-    private FlowerArea flowerArea;
+    // The berry area the agent is in
+    private BerryArea berryArea;
 
-    // The nearest flower to the agent
-    private Berry nearestFlower;
+    // The nearest berry to the agent
+    private Berry nearestBerry;
 
     // Allows for smoother pitch changes
     private float smoothPitchChange = 0f;
@@ -45,16 +45,16 @@ public class AnimalAgent : Agent
     // Maximum angle that the bird can pitch up or down
     private const float MaxPitchAngle = 80f;
 
-    // Maximum distance from the beak tip to accept nectar collision
-    private const float BeakTipRadius = 0.008f;
+    // Maximum distance from the mouth to accept food collision
+    private const float MouthRadius = 0.008f;
 
     // Whether the agent is frozen (intentionally not flying)
     private bool frozen = false;
 
     /// <summary>
-    /// The amount of nectar the agent has obtained this episode
+    /// The amount of food the agent has obtained this episode
     /// </summary>
-    public float NectarObtained { get; private set; }
+    public float FoodObtained { get; private set; }
 
     /// <summary>
     /// Initializes the agent
@@ -62,7 +62,7 @@ public class AnimalAgent : Agent
     public override void Initialize()
     {
         rigidbody = GetComponent<Rigidbody>();
-        flowerArea = GameObject.Find("Food").GetComponent<FlowerArea>();
+        berryArea = GameObject.Find("Food").GetComponent<BerryArea>();
 
         // If not training mode, no max step, play forever
         if (!trainingMode) MaxStep = 0;
@@ -75,88 +75,19 @@ public class AnimalAgent : Agent
     {
         if (trainingMode)
         {
-            // Only reset flower in training when there is one agent per area
-            flowerArea.ResetFlowers();
+            // Only reset berry in training when there is one agent per area
+            berryArea.ResetBerries();
         }
 
-        // Reset nectar obtained
-        NectarObtained = 0f;
+        // Reset food obtained
+        FoodObtained = 0f;
 
         // Zero out velocities so that movement stops before the new episode
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
 
-        // Default to spawning in front of a flower
-        bool inFrontOfFlower = true;
-
-        if (trainingMode)
-        {
-            // Spawn in front of the flower 50% of the time during training
-            inFrontOfFlower = Random.value > .5f;
-        }
-
-        // Move the agent to a new random position
-        MoveToSafeRandomPosition(inFrontOfFlower);
-
-        // Recalculate the nearest flower no that the agent has moved
-        UpdateNearestFlower();
-    }
-
-    /// <summary>
-    /// Move the agent to a safe random position
-    /// (I.E. does not collide with anything)
-    /// If in front of flower, also point the beak at the flower
-    /// </summary>
-    /// <param name="inFrontOfFlower">Whether to choose a spot in front of a flower</param>
-    private void MoveToSafeRandomPosition(bool inFrontOfFlower)
-    {
-        //bool safePositionFound = false;
-        //int attemptsRemaining = 100; // PRevent infinit loop
-        //Vector3 potentialPosition = Vector3.zero;
-        //Quaternion potentialRotation = new Quaternion();
-
-        //// Loop until a safe position is found or run out of attempts
-        //while (!safePositionFound && attemptsRemaining > 0)
-        //{
-        //    attemptsRemaining--;
-        //    if (inFrontOfFlower)
-        //    {
-        //        // Pick a random flower
-        //        Berry randomFlower = flowerArea.Flowers[Random.Range(0, flowerArea.Flowers.Count)];
-
-        //        // Position 10 to 20 cm in front of the flower
-        //        float distanceFromFlower = Random.Range(.5f, 1f);
-        //        potentialPosition = randomFlower.transform.position + randomFlower.FlowerUpVector * distanceFromFlower;
-
-        //        // Point beak at the flower
-        //        Vector3 toFlower = randomFlower.FlowerCenterPosition - potentialPosition;
-        //        potentialRotation = Quaternion.LookRotation(toFlower, Vector3.up);
-        //    }
-        //    else
-        //    {
-        //        // Pick a random height from the ground
-        //        //float height = Random.Range(1.2f, 2.5f);
-        //        // Pick a random radius from the center of the flower area
-        //        float radius = Random.Range(2f, 7f);
-        //        // Pick a random direction rotated around the y axis
-        //        Quaternion direction = Quaternion.Euler(0f, Random.Range(-180, 180f), 0f);
-        //        // Combine height, radius and direction to pick position
-        //        potentialPosition = flowerArea.transform.position = Vector3.up + direction * Vector3.forward * radius;
-
-        //        // Choose and set random starting pitch and yaw
-        //        float pitch = Random.Range(-60f, 60f);
-        //        float yaw = Random.Range(-180f, 180f);
-        //        potentialRotation = Quaternion.Euler(pitch, yaw, 0f);
-        //    }
-
-        //    // Check to see if the angent will collide with anything
-        //    Collider[] colliders = Physics.OverlapSphere(potentialPosition, 0.05f);
-
-        //    // Safe position has been found if no colliders are overlapped
-        //    safePositionFound = colliders.Length == 0;
-        //}
-
-        //Debug.Assert(safePositionFound, "Could not find a safe position to spawn");
+        // Recalculate the nearest berry no that the agent has moved
+        UpdateNearestBerry();
     }
 
     /// <summary>
@@ -173,29 +104,29 @@ public class AnimalAgent : Agent
             : lower < num && num < upper;
 
     /// <summary>
-    /// Update the nearest flower to the agent
+    /// Update the nearest berry to the agent
     /// </summary>
-    private void UpdateNearestFlower()
+    private void UpdateNearestBerry()
     {
-        foreach (Berry flower in flowerArea.Flowers)
+        foreach (Berry berry in berryArea.Berries)
         {
-            if (Between(flower.transform.position.y, minHeightBerry, maxHeightBerry, true))
+            if (Between(berry.transform.position.y, minHeightBerry, maxHeightBerry, true))
             {
-                if (nearestFlower == null && flower.HasNectar)
+                if (nearestBerry == null && berry.HasFood)
                 {
-                    // No current nearest flower and this flower has nectar, so set this flower
-                    nearestFlower = flower;
+                    // No current nearest berry and this berry has food, so set this berry
+                    nearestBerry = berry;
                 }
-                else if (flower.HasNectar)
+                else if (berry.HasFood)
                 {
                     // Calculate distances
-                    float distanceToFlower = Vector3.Distance(flower.transform.position, mouthPos.position);
-                    float distanceToCurrentNearestFlower = Vector3.Distance(nearestFlower.transform.position, mouthPos.position);
+                    float distanceToBerry = Vector3.Distance(berry.transform.position, mouthPos.position);
+                    float distanceToCurrentNearestBerry = Vector3.Distance(nearestBerry.transform.position, mouthPos.position);
 
                     // IF current is closer set nearest to current
-                    if (!nearestFlower.HasNectar || distanceToFlower < distanceToCurrentNearestFlower)
+                    if (!nearestBerry.HasFood || distanceToBerry < distanceToCurrentNearestBerry)
                     {
-                        nearestFlower = flower;
+                        nearestBerry = berry;
                     }
                 }
             }
@@ -302,7 +233,7 @@ public class AnimalAgent : Agent
     /// <param name="sensor">The vector sensor</param>
     public override void CollectObservations(VectorSensor sensor)
     {
-        if (nearestFlower == null)
+        if (nearestBerry == null)
         {
             sensor.AddObservation(new float[10]);
             return;
@@ -311,22 +242,22 @@ public class AnimalAgent : Agent
         // Obvserve the agent's local rotation (4 observations)
         sensor.AddObservation(transform.localRotation.normalized);
 
-        // Get a vector from the beak tip to the nearest flower
-        Vector3 toFlower = nearestFlower.FlowerCenterPosition - mouthPos.position;
+        // Get a vector from the mouth to the nearest berry
+        Vector3 toBerry = nearestBerry.BerryCenterPosition - mouthPos.position;
 
-        // Observe a normalized vecotr pointing to the nearest flower (3 Observations)
-        sensor.AddObservation(toFlower.normalized);
+        // Observe a normalized vecotr pointing to the nearest berry (3 Observations)
+        sensor.AddObservation(toBerry.normalized);
 
-        // Observe a dot product that indicates whether the beak tip is in front of the flower
-        // +1 = beak tip in front of the flower, -1 means behind (1 Observations)
-        sensor.AddObservation(Vector3.Dot(toFlower.normalized, -nearestFlower.FlowerUpVector.normalized));
+        // Observe a dot product that indicates whether the mouth is in front of the berry
+        // +1 = mouthin front of the berry, -1 means behind (1 Observations)
+        sensor.AddObservation(Vector3.Dot(toBerry.normalized, -nearestBerry.BerryUpVector.normalized));
 
-        // Observe a dot product that indicates whether the beak is pointing towards the flower  (1 Observations)
-        // +1 = beak is pointing directly at the flower, -1 directly away
-        sensor.AddObservation(Vector3.Dot(mouthPos.forward.normalized, -nearestFlower.FlowerUpVector.normalized));
+        // Observe a dot product that indicates whether the mouth is pointing towards the berry  (1 Observations)
+        // +1 = mouth pointing directly at the berry, -1 directly away
+        sensor.AddObservation(Vector3.Dot(mouthPos.forward.normalized, -nearestBerry.BerryUpVector.normalized));
 
-        // Observe the relative distance from the beak tip to the flower (1 Observations)
-        sensor.AddObservation(toFlower.magnitude / FlowerArea.AreaDiameter);
+        // Observe the relative distance from the mouth to the berry (1 Observations)
+        sensor.AddObservation(toBerry.magnitude / BerryArea.AreaDiameter);
 
         // 10 total observations
     }
@@ -377,33 +308,33 @@ public class AnimalAgent : Agent
     {
         if (collider.CompareTag("berry"))
         {
-            Vector3 closestPointToBeakTip = collider.ClosestPoint(mouthPos.position);
+            Vector3 closestPointToMouth = collider.ClosestPoint(mouthPos.position);
 
-            // Check if the closest collision point is close to the beak tip.
-            // Note: a collision with anything but the beaktip should not count.
-            if (Vector3.Distance(mouthPos.position, closestPointToBeakTip) < BeakTipRadius) 
+            // Check if the closest collision point is close to the mouth.
+            // Note: a collision with anything but the mouth should not count.
+            if (Vector3.Distance(mouthPos.position, closestPointToMouth) < MouthRadius) 
             {
-                // Get the flower for this nectar collider
-                Berry flower = flowerArea.GetFlowerFromNectar(collider);
+                // Get the berry for this food collider
+                Berry berry = berryArea.GetBerryFromFood(collider);
 
-                // Attempt to take .01 nectar
+                // Attempt to take .01 food
                 // Note: this is per fixed timestep, meaning it happens every .02 seconds
-                float nectarReceived = flower.Feed(.01f);
+                float foodReceived = berry.Feed(.01f);
 
-                // Keep track of the nectar obtained
-                NectarObtained += nectarReceived;
-                Debug.Log("Nectar obtained: " + NectarObtained);
+                // Keep track of the food obtained
+                FoodObtained += foodReceived;
+                Debug.Log("Food obtained: " + FoodObtained);
                 if (trainingMode)
                 {
-                    // Calculate reward for getting nectar
-                    float bonus = .02f * Mathf.Clamp01(Vector3.Dot(transform.forward.normalized, -nearestFlower.FlowerUpVector.normalized));
+                    // Calculate reward for getting food
+                    float bonus = .02f * Mathf.Clamp01(Vector3.Dot(transform.forward.normalized, -nearestBerry.BerryUpVector.normalized));
                     AddReward(.01f + bonus);
                 }
 
-                // if flower is empty, update the nearest flower
-                if (!flower.HasNectar)
+                // if berry is empty, update the nearest berry
+                if (!berry.HasFood)
                 {
-                    UpdateNearestFlower();
+                    UpdateNearestBerry();
                 }
             }
         }
@@ -427,10 +358,10 @@ public class AnimalAgent : Agent
     /// </summary>
     private void Update()
     {
-        // Draw a line from the beak tip to the nearest flower
-        if (nearestFlower != null)
+        // Draw a line from the mouth to the nearest berry
+        if (nearestBerry != null)
         {
-            Debug.DrawLine(mouthPos.position, nearestFlower.FlowerCenterPosition, Color.green);
+            Debug.DrawLine(mouthPos.position, nearestBerry.BerryCenterPosition, Color.green);
         }
     }
 
@@ -439,9 +370,9 @@ public class AnimalAgent : Agent
     /// </summary>
     private void FixedUpdate()
     {
-        if (nearestFlower != null && !nearestFlower.HasNectar)
+        if (nearestBerry != null && !nearestBerry.HasFood)
         {
-            UpdateNearestFlower();
+            UpdateNearestBerry();
         }
     }
 }
