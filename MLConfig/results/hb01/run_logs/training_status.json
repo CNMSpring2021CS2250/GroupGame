@@ -12,13 +12,31 @@
                 "file_path": "results\\hb01\\Lion\\Lion-51584.onnx",
                 "reward": null,
                 "creation_time": 1618244815.8969922
+            },
+            {
+                "steps": 428608,
+                "file_path": "results\\hb01\\Lion\\Lion-428608.onnx",
+                "reward": 7.399468382199605,
+                "creation_time": 1618246869.3880582
+            },
+            {
+                "steps": 432704,
+                "file_path": "results\\hb01\\Lion\\Lion-432704.onnx",
+                "reward": null,
+                "creation_time": 1618246909.011902
+            },
+            {
+                "steps": 473728,
+                "file_path": "results\\hb01\\Lion\\Lion-473728.onnx",
+                "reward": 3.968088161200285,
+                "creation_time": 1618247029.258946
             }
         ],
         "final_checkpoint": {
-            "steps": 51584,
+            "steps": 473728,
             "file_path": "results\\hb01\\Lion.onnx",
-            "reward": null,
-            "creation_time": 1618244815.8969922
+            "reward": 3.968088161200285,
+            "creation_time": 1618247029.258946
         }
     },
     "metadata": {
