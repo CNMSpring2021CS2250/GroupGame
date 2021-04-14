@@ -1,0 +1,35 @@
+{
+    "Animal": {
+        "checkpoints": [
+            {
+                "steps": 499920,
+                "file_path": "results\\lion\\Animal\\Animal-499920.onnx",
+                "reward": 8.379455209192303,
+                "creation_time": 1618324160.65644
+            },
+            {
+                "steps": 743376,
+                "file_path": "results\\lion\\Animal\\Animal-743376.onnx",
+                "reward": 11.407017350196838,
+                "creation_time": 1618325181.9649427
+            },
+            {
+                "steps": 766416,
+                "file_path": "results\\lion\\Animal\\Animal-766416.onnx",
+                "reward": null,
+                "creation_time": 1618327488.7578099
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 766416,
+            "file_path": "results\\lion\\Animal.onnx",
+            "reward": null,
+            "creation_time": 1618327488.7578099
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.8.1+cpu"
+    }
+}
