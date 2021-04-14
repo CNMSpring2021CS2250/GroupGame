@@ -73,11 +73,7 @@ public class AnimalAgent : Agent
     /// </summary>
     public override void OnEpisodeBegin()
     {
-        if (trainingMode)
-        {
-            // Only reset berry in training when there is one agent per area
-            berryArea.ResetBerries();
-        }
+        berryArea.ResetBerries();
 
         // Reset food obtained
         FoodObtained = 0f;
