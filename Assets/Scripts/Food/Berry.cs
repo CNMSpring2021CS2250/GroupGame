@@ -10,6 +10,9 @@ public class Berry : MonoBehaviour
     [Tooltip("The color when the berry is empty")]
     public Color emptyBerryColor = new Color(0.5f, 0f, 1f);
 
+    [Tooltip("The time in seconds for the berry to grow back after completely eaten")]
+    public float timeToGrowBack = 25.0f;
+
     /// <summary>
     /// The trigger collider representing the food
     /// </summary>
@@ -66,11 +69,11 @@ public class Berry : MonoBehaviour
             // No food remaining
             FoodAmount = 0;
 
-            // Disable the berry and food colliders
-            FoodCollider.gameObject.SetActive(false);
-
             // Change the berry color to indicate that it is empty
-            BerryMaterial.SetColor("_BaseColor", emptyBerryColor);
+            BerryMaterial.color = emptyBerryColor;
+
+            // Starts the process of growing back
+            StartCoroutine(GrowBack());
         }
 
         // Return the amount of food that was taken
@@ -89,7 +92,16 @@ public class Berry : MonoBehaviour
         FoodCollider.gameObject.SetActive(true);
 
         // Change the berry clor to indicate that it is full
-        BerryMaterial.SetColor("_BaseColor", fullBerryColor);
+        BerryMaterial.color = fullBerryColor;
+    }
+
+    /// <summary>
+    /// Grows back the berry after a certain amount of time
+    /// </summary>
+    private IEnumerator GrowBack()
+    {
+        yield return new WaitForSeconds(timeToGrowBack);
+        ResetBerry();
     }
 
     private void Awake()
