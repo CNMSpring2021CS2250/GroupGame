@@ -692,11 +692,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1386449838729264095, guid: 7f9ae9fbe6d3bd94393f531303053bda,
-        type: 3}
-      propertyPath: m_Text
-      value: Skyblock Zoo!
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f9ae9fbe6d3bd94393f531303053bda, type: 3}
 --- !u!224 &455735406 stripped
