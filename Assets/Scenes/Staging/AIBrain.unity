@@ -1178,11 +1178,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
+        type: 3}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
       propertyPath: moveForce
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
+        type: 3}
+      propertyPath: trainingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2994810319338292600, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
@@ -1492,13 +1498,19 @@ PrefabInstance:
     - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: moveForce
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
+        type: 3}
+      propertyPath: trainingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5462523753718807125, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
+        type: 3}
     - target: {fileID: 7147843840296062334, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Name
@@ -2614,7 +2626,7 @@ GameObject:
   - component: {fileID: 363162997}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4097,13 +4109,14 @@ PrefabInstance:
     - target: {fileID: 134061920382201452, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: moveForce
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 601353006616305578, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
+        type: 3}
     - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8487,13 +8500,19 @@ PrefabInstance:
     - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: moveForce
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
+        type: 3}
+      propertyPath: trainingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -5462523753718807125, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
+        type: 3}
     - target: {fileID: 7147843840296062334, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Name
@@ -8669,7 +8688,7 @@ GameObject:
   - component: {fileID: 1409669338}
   m_Layer: 0
   m_Name: Cube (6)
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8855,7 +8874,7 @@ GameObject:
   - component: {fileID: 1442867498}
   m_Layer: 0
   m_Name: Cube (5)
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9134,7 +9153,7 @@ GameObject:
   - component: {fileID: 1463940108}
   m_Layer: 0
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13162,13 +13181,14 @@ PrefabInstance:
     - target: {fileID: 134061920382201452, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: moveForce
-      value: 50
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 601353006616305578, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
+        type: 3}
     - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14009,11 +14029,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
+        type: 3}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
       propertyPath: moveForce
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
+        type: 3}
+      propertyPath: trainingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2994810319338292600, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}

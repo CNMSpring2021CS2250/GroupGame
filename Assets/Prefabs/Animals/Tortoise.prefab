@@ -776,7 +776,7 @@ MonoBehaviour:
     VectorActionSize: 05000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
-  m_Model: {fileID: 5022602860645237092, guid: 27bf08a6097d752449e4e5ea96aefcef, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Animal
@@ -800,7 +800,7 @@ MonoBehaviour:
   MaxStep: 5000
   maxHeightBerry: 1.25
   minHeightBerry: 0.25
-  moveForce: 20
+  moveForce: 25
   pitchSpeed: 100
   yawSpeed: 100
   mouthPos: {fileID: 5630782352092111941}
