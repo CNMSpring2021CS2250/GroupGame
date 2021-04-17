@@ -56,6 +56,8 @@ public class AnimalAgent : Agent
     /// </summary>
     public float FoodObtained { get; private set; }
 
+    private AnimalMouth mouth;
+
     /// <summary>
     /// Initializes the agent
     /// </summary>
@@ -63,6 +65,7 @@ public class AnimalAgent : Agent
     {
         rigidbody = GetComponent<Rigidbody>();
         berryArea = GameObject.Find("Food").GetComponent<BerryArea>();
+        mouth = GetComponentInChildren<AnimalMouth>();
 
         // If not training mode, no max step, play forever
         if (!trainingMode) MaxStep = 0;
@@ -302,7 +305,7 @@ public class AnimalAgent : Agent
     /// <param name="collider">The trigger collider</param>
     private void TriggerEnterOrStay(Collider collider)
     {
-        if (collider.CompareTag("berry"))
+        if (collider.CompareTag("berry") && mouth.TouchingFood)
         {
             Vector3 closestPointToMouth = collider.ClosestPoint(mouthPos.position);
 
