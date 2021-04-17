@@ -4,9 +4,6 @@ using UnityEngine;
 /// <summary>
 /// Chooses which camera settings the user operates.
 /// </summary>
-[RequireComponent(typeof(MouseLook))]
-[RequireComponent(typeof(SimpleCameraController))]
-[RequireComponent(typeof(SmoothTranslation))]
 public class CameraController : MonoBehaviour
 {
 
