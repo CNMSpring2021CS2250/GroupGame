@@ -73,7 +73,8 @@ public class CameraController : MonoBehaviour
     /// <param name="enabled">The bool to enable or disable the value. TRUE is enabled</param>
     private void SetEnabledFPSCamera(bool enabled)
     {
-        Player.GetComponent<FPSInputJump>().enabled = enabled;
+        Player.GetComponent<FPSInputJump>().canMove = enabled;
+
         Player.GetComponent<MouseLook>().enabled = enabled;
         GetComponent<MouseLook>().enabled = enabled;
     }
