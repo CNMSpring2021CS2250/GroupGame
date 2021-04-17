@@ -79,7 +79,6 @@ public class SmoothTranslation : MonoBehaviour
 
         while (fractionComplete < 1)
         {
-            Debug.Log(fractionComplete);
             fractionComplete = ((Time.time - startTime) / timeToTransition) * Time.deltaTime;
             transform.position = Vector3.Slerp(startPos.position, endPos.position, fractionComplete);
 
