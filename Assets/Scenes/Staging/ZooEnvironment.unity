@@ -1589,40 +1589,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 1916736570973183066, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_Name
       value: Penguin
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754035238373523074, guid: 569221177ef59194e8f7b7584959a314,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754035238373523074, guid: 569221177ef59194e8f7b7584959a314,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4754035238373523074, guid: 569221177ef59194e8f7b7584959a314,
-        type: 3}
-      propertyPath: m_Drag
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569221177ef59194e8f7b7584959a314, type: 3}
