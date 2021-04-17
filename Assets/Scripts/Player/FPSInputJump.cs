@@ -16,30 +16,12 @@ public class FPSInputJump : MonoBehaviour
     public float terminalVelocity = -10.0f;
     public float minFall = -1.5f;
 
-    private float _vertSpeed;
+    public bool canMove = true;
 
-    //public const float baseSpeed = 6.0f;
+    private float _vertSpeed;
 
     // Reference to Character Controller
     private CharacterController _charController;
-
-
-    // // Messenger code
-    // void Awake()
-    // {
-    //     Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
-    // }
-
-    // void OnDestroy()
-    // {
-    //     Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, OnSpeedChanged);
-    // }
-
-    // private void OnSpeedChanged(float value)
-    // {
-    //     speed = baseSpeed * value;
-    // }
-
 
     // Start is called before the first frame update
     void Start()
@@ -51,15 +33,21 @@ public class FPSInputJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float deltaX = Input.GetAxis("Horizontal") * speed;
-        float deltaZ = Input.GetAxis("Vertical") * speed;
+
+        float deltaX = 0;
+        float deltaZ = 0;
+        if (canMove)
+        {
+            deltaX = Input.GetAxis("Horizontal") * speed;
+            deltaZ = Input.GetAxis("Vertical") * speed;
+        }
         Vector3 movement = new Vector3(deltaX, 0, deltaZ);
         movement = Vector3.ClampMagnitude(movement, speed);
 
         // Jump Code
         if (_charController.isGrounded)
         {
-            if (Input.GetButtonDown("Jump")) // Spacebar
+            if (Input.GetButtonDown("Jump") && canMove) // Spacebar
             {
                 _vertSpeed = jumpSpeed;
             }
