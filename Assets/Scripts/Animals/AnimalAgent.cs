@@ -339,18 +339,18 @@ public class AnimalAgent : Agent
         }
     }
 
-    ///// <summary>
-    ///// Called when the agent collides with something solid
-    ///// </summary>
-    ///// <param name="collision">The collision info</param>
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (trainingMode && collision.collider.CompareTag("boundary"))
-    //    {
-    //        // Collision with area boundary give negative reward
-    //        AddReward(-.5f);
-    //    }
-    //}
+    /// <summary>
+    /// Called when the agent collides with something solid
+    /// </summary>
+    /// <param name="collision">The collision info</param>
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (trainingMode && collision.collider.CompareTag("boundary"))
+        {
+            // Collision with area boundary give negative reward
+            AddReward(-.5f);
+        }
+    }
 
     /// <summary>
     /// Called every frame
