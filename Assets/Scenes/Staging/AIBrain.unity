@@ -1178,12 +1178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
       propertyPath: moveForce
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
@@ -1498,7 +1497,7 @@ PrefabInstance:
     - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: moveForce
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
@@ -1509,8 +1508,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7147843840296062334, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Name
@@ -4109,14 +4107,18 @@ PrefabInstance:
     - target: {fileID: 134061920382201452, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: moveForce
-      value: 20
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 134061920382201452, guid: 569221177ef59194e8f7b7584959a314,
+        type: 3}
+      propertyPath: trainingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 601353006616305578, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8500,7 +8502,7 @@ PrefabInstance:
     - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: moveForce
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: -7356676499448659098, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
@@ -8511,8 +8513,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7147843840296062334, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Name
@@ -13181,14 +13182,18 @@ PrefabInstance:
     - target: {fileID: 134061920382201452, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: moveForce
-      value: 20
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 134061920382201452, guid: 569221177ef59194e8f7b7584959a314,
+        type: 3}
+      propertyPath: trainingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 601353006616305578, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14029,12 +14034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
       propertyPath: moveForce
-      value: 20
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}

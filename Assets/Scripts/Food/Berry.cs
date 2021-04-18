@@ -71,6 +71,7 @@ public class Berry : MonoBehaviour
 
             // Change the berry color to indicate that it is empty
             BerryMaterial.color = emptyBerryColor;
+            gameObject.tag = "boundary";
 
             // Starts the process of growing back
             StartCoroutine(GrowBack());
@@ -93,6 +94,7 @@ public class Berry : MonoBehaviour
 
         // Change the berry clor to indicate that it is full
         BerryMaterial.color = fullBerryColor;
+        gameObject.tag = "berry";
     }
 
     /// <summary>
