@@ -776,7 +776,7 @@ MonoBehaviour:
     VectorActionSize: 05000000
     VectorActionDescriptions: []
     VectorActionSpaceType: 1
-  m_Model: {fileID: 5022602860645237092, guid: bc9368d232e207a408c3510638580f8a, type: 3}
+  m_Model: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269, type: 3}
   m_InferenceDevice: 0
   m_BehaviorType: 0
   m_BehaviorName: Animal
