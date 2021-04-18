@@ -52,25 +52,18 @@ public class SmoothTranslation : MonoBehaviour
     /// </summary>
     private IEnumerator TransitionRotation()
     {
-        endPos.rotation = new Quaternion(0, transform.rotation.x, 0, 0);
-
+        float time = 0;
+        Quaternion startValue = transform.rotation;
         TransitioningRot = true;
-        float startTime = Time.time;
-        float fractionComplete = 0;
 
-        while (fractionComplete < 1)
+        while (time < timeToTransition)
         {
-            fractionComplete = ((Time.time - startTime) / timeToTransition) * Time.deltaTime;
-            transform.rotation = Quaternion.Lerp(transform.rotation, endPos.rotation, fractionComplete);
-
-            if (Vector3.Distance(transform.position, endPos.position) < 0.1)
-            {
-                transform.rotation = endPos.rotation;
-                break;
-            }
+            transform.rotation = Quaternion.Lerp(startValue, endPos.rotation, time / timeToTransition);
+            time += Time.deltaTime;
             yield return null;
         }
 
+        transform.rotation = endPos.rotation;
         TransitioningRot = false;
     }
 
