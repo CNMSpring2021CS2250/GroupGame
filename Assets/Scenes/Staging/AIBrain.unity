@@ -1178,7 +1178,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269,
+        type: 3}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
       propertyPath: moveForce
@@ -1508,7 +1509,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269,
+        type: 3}
     - target: {fileID: 7147843840296062334, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Name
@@ -4118,7 +4120,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269,
+        type: 3}
     - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8513,7 +8516,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269,
+        type: 3}
     - target: {fileID: 7147843840296062334, guid: 0ac06d35104c14af08ac1e4a035bf9df,
         type: 3}
       propertyPath: m_Name
@@ -13193,7 +13197,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269,
+        type: 3}
     - target: {fileID: 1284173974609790688, guid: 569221177ef59194e8f7b7584959a314,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14034,7 +14039,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5022602860645237092, guid: 89bdef30baac82b409e8671198b82269,
+        type: 3}
     - target: {fileID: 2994810319338292582, guid: 4077b8ae71d7ef846bff9ed8da9ba5e9,
         type: 3}
       propertyPath: moveForce
