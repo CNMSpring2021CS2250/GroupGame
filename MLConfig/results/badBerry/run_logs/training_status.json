@@ -1,0 +1,47 @@
+{
+    "Animal": {
+        "checkpoints": [
+            {
+                "steps": 3499920,
+                "file_path": "results\\badBerry\\Animal\\Animal-3499920.onnx",
+                "reward": 4.747585751116276,
+                "creation_time": 1618761791.967023
+            },
+            {
+                "steps": 3999968,
+                "file_path": "results\\badBerry\\Animal\\Animal-3999968.onnx",
+                "reward": 5.784231933454673,
+                "creation_time": 1618763981.3561106
+            },
+            {
+                "steps": 4499896,
+                "file_path": "results\\badBerry\\Animal\\Animal-4499896.onnx",
+                "reward": 5.968043427914381,
+                "creation_time": 1618766216.6880226
+            },
+            {
+                "steps": 4999920,
+                "file_path": "results\\badBerry\\Animal\\Animal-4999920.onnx",
+                "reward": null,
+                "creation_time": 1618768486.3702168
+            },
+            {
+                "steps": 5000304,
+                "file_path": "results\\badBerry\\Animal\\Animal-5000304.onnx",
+                "reward": null,
+                "creation_time": 1618768486.5342162
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 5000304,
+            "file_path": "results\\badBerry\\Animal.onnx",
+            "reward": null,
+            "creation_time": 1618768486.5342162
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.8.1+cpu"
+    }
+}
