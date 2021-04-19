@@ -21,8 +21,11 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Pause()
     {
+        // Update UI
         gameObject.SetActive(true);
         IsPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     /// <summary>
@@ -30,8 +33,11 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     public void Play()
     {
+        // Update UI
         gameObject.SetActive(false);
         IsPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     /// <summary>
@@ -40,8 +46,12 @@ public class PauseMenu : MonoBehaviour
     public void TogglePause()
     {
         if (this.IsPaused)
+        {
             Play();
+        }
         else
+        {
             Pause();
+        }
     }
 }
