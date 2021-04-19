@@ -16,7 +16,6 @@ public class UIController : MonoBehaviour
     private void Start()
     {
         pauseMenu = GameObject.FindGameObjectWithTag("UI").GetComponentInChildren<PauseMenu>();
-
         SetupMenuStates();
     }
 

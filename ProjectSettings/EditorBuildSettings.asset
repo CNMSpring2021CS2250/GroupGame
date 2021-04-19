@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: 707397972d33fe449bb7118affe541cb
+  - enabled: 1
+    path: Assets/Scenes/ZooEnvironment.unity
+    guid: 877e4f6a26f454e759a94a9663266f9f
   m_configObjects: {}
