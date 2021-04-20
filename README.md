@@ -4,8 +4,9 @@ This is a group project from Central New Mexico Community College (CNM)
 The purpose is to train a neural network to eat berries as an animal.
 
 # Controls
- - WASD to move around
- - F to fly around
+ - <kbd>WASD</kbd> to move around
+ - <kbd>F</kbd> to fly around
+ - <kbd>Esc</kbd> to pause
 
 # The Friendly Animals!
 
