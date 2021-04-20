@@ -41,7 +41,7 @@ public class Berry : MonoBehaviour
     /// <summary>
     /// The amount of food remaining in the berry
     /// </summary>
-    public float FoodAmount { get; private set; }
+    public float FoodAmount;
 
     /// <summary>
     /// Whether the berry has any food remaining
@@ -86,6 +86,8 @@ public class Berry : MonoBehaviour
     /// </summary>
     public void ResetBerry()
     {
+        Debug.Log("Food reset");
+
         // Refil the food
         FoodAmount = 1f;
 
