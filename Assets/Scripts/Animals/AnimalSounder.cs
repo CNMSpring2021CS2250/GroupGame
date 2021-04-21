@@ -13,7 +13,7 @@ public class AnimalSounder : MonoBehaviour
     void Start()
     {
         AudioSource = GetComponent<AudioSource>();
-        AudioSource.spatialBlend = 1f;
+        AudioSource.spatialBlend = 0.91f;
 
         StartCoroutine(MakeAnimalSounds());
     }
@@ -24,7 +24,7 @@ public class AnimalSounder : MonoBehaviour
         {
             while (true)
             {
-                yield return new WaitForSecondsRealtime(Random.Range(120, 240));
+                yield return new WaitForSecondsRealtime(Random.Range(30, 70));
                 AudioSource.PlayOneShot(AudioClip);
             }
         }
