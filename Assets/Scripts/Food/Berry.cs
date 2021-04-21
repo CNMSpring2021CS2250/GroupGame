@@ -86,6 +86,8 @@ public class Berry : MonoBehaviour
     /// </summary>
     public void ResetBerry()
     {
+        Debug.Log("Food reset");
+
         // Refil the food
         FoodAmount = 1f;
 
