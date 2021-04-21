@@ -68,6 +68,14 @@ public class BerryArea : MonoBehaviour
         FindChildBerries(transform);
     }
 
+    private void Update()
+    {
+        if (!Berries[0].HasFood)
+        {
+            ResetBerries();
+        }
+    }
+
     /// <summary>
     /// Recursively finds all berrys and berry plants that are children of a parent transform
     /// </summary>

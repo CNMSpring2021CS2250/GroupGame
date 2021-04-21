@@ -322,7 +322,7 @@ public class AnimalAgent : Agent
 
                 // Keep track of the food obtained
                 FoodObtained += foodReceived;
-                Debug.Log("Food obtained: " + FoodObtained);
+                //Debug.Log("Food obtained: " + FoodObtained);
                 if (trainingMode)
                 {
                     // Calculate reward for getting food
@@ -369,7 +369,11 @@ public class AnimalAgent : Agent
     /// </summary>
     private void FixedUpdate()
     {
-        if (nearestBerry != null && !nearestBerry.HasFood)
+        if (nearestBerry == null)
+        {
+            UpdateNearestBerry();
+        }
+        else if (!nearestBerry.HasFood)
         {
             UpdateNearestBerry();
         }
