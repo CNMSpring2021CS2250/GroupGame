@@ -1594,6 +1594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Penguin
       objectReference: {fileID: 0}
+    - target: {fileID: 8976021388288698434, guid: 569221177ef59194e8f7b7584959a314,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569221177ef59194e8f7b7584959a314, type: 3}
 --- !u!4 &516978830 stripped
