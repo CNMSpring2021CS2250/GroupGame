@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 7611167995151899598}
   - component: {fileID: 8974595645672973967}
   m_Layer: 0
-  m_Name: FlamingoAnimationFinal
+  m_Name: Flamingo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
