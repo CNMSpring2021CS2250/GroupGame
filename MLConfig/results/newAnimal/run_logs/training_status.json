@@ -1,0 +1,47 @@
+{
+    "Animal": {
+        "checkpoints": [
+            {
+                "steps": 2499968,
+                "file_path": "results\\newAnimal\\Animal\\Animal-2499968.onnx",
+                "reward": null,
+                "creation_time": 1618644583.2090032
+            },
+            {
+                "steps": 2999896,
+                "file_path": "results\\newAnimal\\Animal\\Animal-2999896.onnx",
+                "reward": 40.39317707870813,
+                "creation_time": 1618650387.7326612
+            },
+            {
+                "steps": 3499920,
+                "file_path": "results\\newAnimal\\Animal\\Animal-3499920.onnx",
+                "reward": 40.527541215221085,
+                "creation_time": 1618657194.286578
+            },
+            {
+                "steps": 3999968,
+                "file_path": "results\\newAnimal\\Animal\\Animal-3999968.onnx",
+                "reward": 42.84538013736407,
+                "creation_time": 1618664616.874679
+            },
+            {
+                "steps": 4092768,
+                "file_path": "results\\newAnimal\\Animal\\Animal-4092768.onnx",
+                "reward": 34.50509728615483,
+                "creation_time": 1618666008.8723772
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4092768,
+            "file_path": "results\\newAnimal\\Animal.onnx",
+            "reward": 34.50509728615483,
+            "creation_time": 1618666008.8723772
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.2.0",
+        "mlagents_version": "0.25.0",
+        "torch_version": "1.8.1+cpu"
+    }
+}

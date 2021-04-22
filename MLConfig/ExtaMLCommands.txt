@@ -1,0 +1,11 @@
+pip install mlagents
+
+python -m mlagents.trainers.upgrade_config  trainer_config.yaml trainer_config_upgrade.yaml
+
+pip install torch
+
+// See help with this
+mlagents-learn -h
+
+// Run the mlagents training | Be in the yaml directory too!
+mlagents-learn ./trainer_config_upgrade.yaml --run-id hb01
