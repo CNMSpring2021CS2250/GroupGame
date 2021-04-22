@@ -13,3 +13,4 @@ The purpose is to train a neural network to eat berries as an animal.
 ![Penguin model](/Screenshots/Penguin.png)
 ![Tortoise model](/Screenshots/Tortoise.png)
 ![Lion model](/Screenshots/Lion.png)
+![Flamingo Model](/Screenshots/Flamingo.png)
